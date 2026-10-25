@@ -122,64 +122,64 @@
         <section id="services" class="page-section">
             <div class="glass-card page-card">
                 <h2>服務項目</h2>
-                <div class="card-line"></div>
-                <ul class="services-list">
-                    <li><span>✨</span> 精選前端網頁版型販售</li>
-                    <li><span>💻</span> 客製化網站前端開發</li>
-                    <li><span>📱</span> RWD 響應式網頁設計 <small>(手機/平板/電腦完美適配)</small></li>
-                    <li><span>💬</span> 你想要的都可以跟我討論！</li>
-                </ul>
-                <div class="service-notice">
+ <div class="card-line"></div>
+ <ul class="services-list">
+ <li><span>✨</span> 精選前端網頁版型販售</li>
+ <li><span>💻</span> 客製化網站前端開發</li>
+ <li><span>📱</span> RWD 響應式網頁設計 <small>(手機/平板/電腦完美適配)</small></li>
+ <li><span>💬</span> 你想要的都可以跟我討論！</li>
+ </ul>
+ <div class="service-notice">
                     ⚠️ 服務範圍僅包含網頁版型與前端代碼，不包含網域及主機租用費用。
-                </div>
-            </div>
-        </section>
+ </div>
+ </div>
+ </section>
 
-        <!-- 頁面 5：聯絡我們 -->
-        <section id="contact" class="page-section">
-            <div class="glass-card">
-                <h2>聯絡我們</h2>
-                <div class="card-line"></div>
-                <div class="info-group">
-                    <p class="info-label">LINE ID</p>
-                    <p class="info-value">cyakura_</p>
-                </div>
-                <div class="info-group">
-                    <p class="info-label">EMAIL</p>
-                    <p class="info-value"><a href="mailto:cyakura764334@gmail.com">cyakura764334@gmail.com</a></p>
-                </div>
-                <div class="info-group">
-                    <p class="info-label">服務時間</p>
-                    <p class="info-value">週一至週五 18:00 - 24:00</p>
-                </div>
-                <div class="info-group">
-                    <p class="info-label">回覆承諾</p>
-                    <p class="info-value">收到信件後將於 24 小時內儘速回覆</p>
-                </div>
-                 <div class="card-copyright">
-                    <p>&copy; 2026 EXPERIMENTAL STUDIO 實驗體工作室 版權所有</p>
-                </div>
-            </div>
-        </section>
+ <!-- 頁面 5：聯絡我們 -->
+ <section id="contact" class="page-section">
+ <div class="glass-card">
+ <h2>聯絡我們</h2>
+ <div class="card-line"></div>
+ <div class="info-group">
+ <p class="info-label">LINE ID</p>
+ <p class="info-value">cyakura_</p>
+ </div>
+ <div class="info-group">
+ <p class="info-label">EMAIL</p>
+ <p class="info-value"><a href="mailto:cyakura764334@gmail.com">cyakura764334@gmail.com</a></p>
+ </div>
+ <div class="info-group">
+ <p class="info-label">服務時間</p>
+ <p class="info-value">週一至週五 18:00 - 24:00</p>
+ </div>
+ <div class="info-group">
+ <p class="info-label">回覆承諾</p>
+ <p class="info-value">收到信件後將於 24 小時內儘速回覆</p>
+ </div>
+ <div class="card-copyright">
+ <p>&copy; 2026 EXPERIMENTAL STUDIO 實驗體工作室 版權所有</p>
+ </div>
+ </div>
+ </section>
 
-    </div>
+ </div>
 
-    <script>
-        const container = document.getElementById('main-container');
-        const navButtons = document.querySelectorAll('.nav-btn');
-        
-        navButtons.forEach((btn, index) => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                navButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const targetId = btn.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+ <script>
+ const container = document.getElementById('main-container');
+ const navButtons = document.querySelectorAll('.nav-btn');
+ 
+ navButtons.forEach((btn, index) => {
+ btn.addEventListener('click', (e) => {
+ e.preventDefault();
+ navButtons.forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+ const targetId = btn.getAttribute('href');
+ const targetSection = document.querySelector(targetId);
+ if (targetSection) {
+ targetSection.scrollIntoView({ behavior: 'smooth' });
+ }
+ });
+ });
+ </script>
 </body>
 </html>
