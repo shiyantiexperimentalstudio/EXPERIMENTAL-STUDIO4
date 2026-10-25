@@ -1,0 +1,444 @@
+/* ==========================================
+   1. 基礎重設與全域設定（極簡黑字優化版）
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 🌟 全面改用現代無襯線黑體，並將預設字體顏色強制改為深墨黑 (#1a1a1a) */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Noto Sans CJK TC", "Source Han Sans TC", "Microsoft JhengHei", sans-serif;
+    color: #1a1a1a; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* 徹底鎖死瀏覽器自帶的滾動條 */
+}
+
+body {
+    background-color: #ffffff; /* 確保極簡白系背景 */
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 🌟 滾動容器：隱藏溢出 */
+.scroll-container {
+    height: 100vh;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ==========================================
+   2. 頂部導覽列 (Navbar)
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* 白系磨砂背景 */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 淡黑邊框 */
+}
+
+.logo {
+    color: #000000 !important; /* 標誌純黑 */
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links a {
+    color: rgba(0, 0, 0, 0.6) !important; /* 導覽字體深灰黑 */
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    color: #006688 !important; /* 懸停深藍綠色 */
+}
+
+/* 當前點選的分頁底線高亮 */
+.nav-links a.active {
+    color: #000000 !important; /* 啟用中字體純黑 */
+    font-weight: bold;
+    border-bottom: 2px solid #006688;
+}
+
+/* ==========================================
+   3. 獨立分頁基礎佈局
+   ========================================== */
+.page-section {
+    height: 100vh; /* 強制每一頁剛好等於螢幕高 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 40px 20px;
+    overflow: hidden; 
+}
+
+/* 通用白系磨砂玻璃大卡片 */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85); /* 高透光白底磨砂 */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    color: #1a1a1a !important;
+    text-align: left;
+}
+
+.page-card {
+    max-width: 650px;
+}
+
+.glass-card h2 {
+    color: #000000 !important; /* 卡片大標題純黑 */
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* 卡片下方裝飾短線 */
+.card-line {
+    width: 50px;
+    height: 3px;
+    background-color: #006688;
+    margin: 0 auto 30px auto;
+    border-radius: 2px;
+}
+
+.section-p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333333 !important; /* 內文深灰色 */
+    text-align: justify;
+}
+
+/* ==========================================
+   4. 各分頁專屬細節樣式
+   ========================================== */
+
+/* --- 頁面 1：首頁 (Hero) --- */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: -40px; 
+}
+
+.hero-content h1 {
+    color: #000000 !important; /* 首頁大標題純黑 */
+    font-size: 52px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8) !important;
+}
+
+.hero-content p {
+    color: #333333 !important; /* 首頁副標題深灰 */
+    font-size: 20px;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+    text-shadow: none !important;
+}
+
+/* --- 頁面 2：關於我們 匠人聲明 --- */
+.solo-notice {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background: rgba(0, 102, 136, 0.05);
+    border-left: 4px solid #006688;
+    border-radius: 0 10px 10px 0;
+    color: #222222 !important; 
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.solo-notice strong {
+    color: #006688 !important; 
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+/* --- 🌟 頁面 3：成品預覽（完整復原並修復排版） --- */
+.portfolio-section {
+    padding: 90px 0 0 0; 
+    height: 100vh;       
+    overflow: hidden;    
+}
+
+/* 允許卡片內部滾動的核心盒子 */
+.portfolio-scroll-box {
+    width: 100%;
+    height: calc(100vh - 90px); 
+    max-height: 100%;           
+    overflow-y: auto;           
+    padding: 20px 20px 80px 20px;
+    scrollbar-width: none;       
+}
+.portfolio-scroll-box::-webkit-scrollbar {
+    display: none;              
+}
+
+.portfolio-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: #000000 !important; /* 區塊大標題純黑 */
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* 類別大區塊 */
+.category-block {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 50px auto; 
+    text-align: left;
+}
+
+/* 🌟 核心復原：接回彈性網格布局，讓 3 張卡片橫向排列，再也不會錯位往下掉 */
+.product-grid {
+    display: flex !important;
+    gap: 25px !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+}
+
+/* 白系專用商品卡片 */
+.product-card {
+    background: rgba(255, 255, 255, 0.85); /* 亮白底磨砂 */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 35px 25px;
+    flex: 1 !important;                 /* 🌟 核心：三張卡片平均分攤寬度 */
+    max-width: 350px !important;
+    color: #1a1a1a !important;          /* 卡片文字全部變黑 */
+    text-align: center;
+    position: relative;
+    display: flex !important;           /* 開啟卡片內部垂直佈局 */
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    min-height: 410px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.product-card.featured {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 102, 136, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 102, 136, 0.5);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    padding: 4px 15px;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    letter-spacing: 1px;
+    color: #444444 !important; 
+}
+
+.badge.premium {
+    background: #006688;
+    color: #ffffff !important; /* 精選標籤背景深色，字體維持純白 */
+    font-weight: bold;
+}
+
+.product-card h3 {
+    font-size: 19px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    color: #000000 !important; /* 產品名純黑 */
+}
+
+.tech-tags {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tech-tags span {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    color: #555555 !important; 
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #444444 !important; /* 說明文字深灰黑 */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #006688 !important; /* 價格改為沉穩主題藍 */
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* 按鈕外框彈性容器 */
+.card-buttons {
+    display: flex !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    box-sizing: border-box;
+}
+
+/* 左側 Demo 按鈕等寬 50% 置中 */
+.demo-btn {
+    flex: 1 !important;
+    width: 50% !important;
+    padding: 10px 0;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #333333 !important; /* 白底上的空心按鈕字用深灰 */
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.demo-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: #000000;
+    color: #000000 !important;
+}
+
+/* 右側購買按鈕等寬 50% 置中 */
+.buy-btn {
+    display: block !important;
+    flex: 1 !important;
+    width: 50% !important;
+    padding: 10px 0;
+    background: #006688; /* 實心按鈕改用主題藍 */
+    color: #ffffff !important; /* 實心按鈕字體維持純白以免看不到 */
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.buy-btn:hover {
+    background: #004455;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-tip {
+    font-size: 13px;
+    color: #006688 !important; 
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* --- 🌟 頁面 4 與 5：服務項目與聯絡我們（黑字優化） --- */
+.services-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.services-list li {
+    font-size: 16px;
+    color: #222222 !important; /* 列表文字改深黑 */
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.services-list li span {
+    color: initial !important; /* Emoji 保持原色 */
+}
+
+.services-list li small {
+    font-size: 12px;
+    color: #006688 !important;
+}
+
+.service-notice {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 15px;
+    text-align: left;
+}
+
+.info-group {
+    margin-bottom: 25px; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* 淡淡的黑色分隔線 */
+    padding-bottom: 15px; 
+}
+
+.info-label {
+    font-size: 12px;
+    color: #006688 !important; /* 欄位英文改為高級的主題深藍 */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* 萬能保險：確保任何磨砂卡片內部的基礎字體都是高質感黑 */
+.info-group *, .glass-card * {
+    color: #1a1a1a;
+}
